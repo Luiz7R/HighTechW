@@ -10,13 +10,21 @@
   ## Project Preview
   
   #### News Page
-  ![newsPage](https://user-images.githubusercontent.com/54550561/120905980-32ea2b00-c62c-11eb-8bc6-e86447f09311.png)
-    
+  <p align="center">
+       <img src="https://user-images.githubusercontent.com/54550561/120905980-32ea2b00-c62c-11eb-8bc6-e86447f09311.png">
+  </p>    
+  <p align="center">
+       <img src="https://user-images.githubusercontent.com/54550561/120909873-237cd900-c650-11eb-8490-2b928585398f.png">
+  </p>    
+  <p align="center">
+       <img src="https://user-images.githubusercontent.com/54550561/120909896-5e7f0c80-c650-11eb-9500-6643195f6d7b.png">
+  </p> 
+   
   #### Login Page
   ![loginPage](https://user-images.githubusercontent.com/54550561/120906036-970cef00-c62c-11eb-85da-066f5e709989.png)
   
   #### User Profile  
-  ![userProfile](https://user-images.githubusercontent.com/54550561/120906059-bad03500-c62c-11eb-825c-6c9e43af598b.png)
+  ![userProfile](https://user-images.githubusercontent.com/54550561/120909857-f16b7700-c64f-11eb-8cb8-7abbd966fc01.png)
   
   ## Incoming
   
