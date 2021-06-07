@@ -9,42 +9,24 @@ use Illuminate\Support\Facades\Auth;
 
 class UserAuth extends Controller
 {
-
-      /**
-       * Handle an authentication attempt.
-       *
-       * @param  \Illuminate\Http\Request  $request
-       * @return \Illuminate\Http\Response
-       */
-
-      public function keep (LogRequest $request)
-      {
-
-            $request->authenticate();
-
-            $request->session()->regenerate();
-
-            return redirect()->route('admprf');
-      }
-
-      public function admLog ( )
-      {
-            if ( Auth::check() )
-            {
-                  return redirect()->route('admprf');
-            }
-            return view('admin.login');
-      } 
       
       public function adminProfile ( )
       {
-            $user = Auth::user();
-            return view('admin.profile', compact(['user']));
+            if ( Auth::check() )
+            {
+                 $user = Auth::user();
+                 return view('admin.profile', compact(['user']));
+            }
+            return redirect()->route('newsPage');
       }      
 
       public function userProfile ( )
       {
-            $user = Auth::user();
-            return view('profile', compact(['user']));
+            if ( Auth::check() )
+            {
+                 $user = Auth::user();
+                 return view('profile', compact(['user']));
+            } 
+            return redirect()->route('newsPage');
       }   
 }

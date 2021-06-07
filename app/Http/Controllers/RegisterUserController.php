@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\Support\Str;
-
+use Carbon\Carbon;
 
 class RegisterUserController extends Controller
 {
@@ -27,8 +27,8 @@ class RegisterUserController extends Controller
 
               $user = User::create([
                   'name' => $request->name,
-                  'email' => $request->email,
-                  'email_verified_at' => now(),
+                  'email' => $request->email,  
+                  'email_verified_at' => Carbon::now(),
                   'password' => Hash::make($request->password),
                   'remember_token' => Str::random(10),
               ]);

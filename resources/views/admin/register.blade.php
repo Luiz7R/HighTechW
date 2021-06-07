@@ -8,28 +8,53 @@
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>      
     <title>Register HightechW</title>
+
+    <style>
+        body
+        {
+            background-image:url("{{ asset('img/HlE4Td.jpg') }}");
+            background-position: center;
+            background-size: cover;
+        }
+
+        .text-colorspcblue
+        {
+            color: #2fa4e7;
+        }
+
+        .form-register
+        {
+            
+        }
+
+        .form-control{
+            background:transparent!important;
+            color:white!important;
+            font-size: 18px!important;
+        }       
+    </style>
 </head>
 
 <body>
     <section>
         <div class="container">
             <div class="row" style="margin-top: 12%;">
-                <div class="col-md-6 offset-md-3">
+                <div class="col-md-6 offset-md-3 form-register">
                     <form method="post" action="{{ route('register.user') }}">
                         @csrf
                         <div class="form-group">
                             <h3>Register</h3>
                         </div>
                         <div class="form-group">
-                            <label for="name" class="label-control">Name</label>
-                            <input type="text" class="form-control" name="name" />
+                            <label for="name" class="label-control text-colorspcblue">Name</label>
+                            <input type="text" class="form-control" name="name" placeholder="" />
                         </div>                        
                         <div class="form-group">
-                            <label for="email" class="label-control">Email</label>
+                            <label for="email" class="label-control text-colorspcblue">Email</label>
                             <input type="text" class="form-control" name="email" />
                         </div>
                         <div class="form-group">
-                            <label for="password" class="label-control">Password</label>
+                            <label for="password" class="label-control text-colorspcblue">Password</label>
                             <input type="password" class="form-control" name="password" />
                         </div>
                         <button type="submit" class="btn btn-primary">Register</button>                    

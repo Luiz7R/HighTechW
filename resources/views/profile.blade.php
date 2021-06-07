@@ -14,102 +14,55 @@
                padding: 3rem !important;
            }
 
-           .user-card-full 
-           {
-               overflow: hidden;
-           }
-
            .card
            {
                border-radius: 5px;
+               background: #27293d;
+               width: 100%;
                -webkit-box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
-               box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
-               border: none;
+               box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 10%);
+               border: 0;
+               position: relative;
                margin-bottom: 30px;
            }
 
-           .m-r-0
-           {
-               margin-right: 0px;
-           }
+           .card-user .author {
+                text-align: center;
+                text-transform: none;
+                margin-top: 25px;
+            }
 
-           .m-1-0
-           {
-               margin-left: 0px;
-           }
+            .card-user .avatar {
+                width: 124px;
+                height: 255px;
+                border: 5px solid #2b3553;
+                border-bottom-color: transparent;
+                background-color: transparent;
+                position: relative;
+            }
 
-           .user-card-full .user-profile
-           {
-               border-radius: 5px 0 0 5px;
-           }
+            .card .avatar 
+            {
+                width: 100px;
+                height: 100px;
+                overflow: hidden;
+                border-radius: 50%;
+                margin-bottom: 15px;
+            }
 
-           .bg-c-lite-green
-           {
-               background: -webkit-gradient(linear, left top, right top, from(#f29263), to(#ee5a6f));
-               background: linear-gradient(to right, #ee5a6f, #f29263);
-           }
+            img
+            {
+                max-width: 100%;
+            }
 
-           .user-profile
+           .card .card-user
            {
-               padding: 20px 0;
-           }
-
-           .card-block
-           {
-               padding: 1.25rem;
-           }
-
-           .m-b-25
-           {
-               margin-bottom: 25px;
-           }
-
-           .img-radius
-           {
-               border-radius: 5px;
-           }
-
-           h6
-           {
-               font-size: 14px;
-           }
-
-           .card .card-block p
-           {
-               line-height: 25px;
-           }
-
-           @media only screen and ( min-width: 1400px )
-           {
-               p
-               {
-                   font-size: 14px;
-               }
-           }
-
-           .card-block
-           {
-               padding: 1.25rem;
-           }
-
-           .b-b-default
-           {
-               border-bottom: 1px solid #e0e0e0;
-           }
-
-           .m-b-20
-           {
-               margin-bottom: 20px;
-           }
-
-           .p-b-5
-           {
-               padding-bottom: 5px !important;
-           }
-
-           .m-b-10
-           {
-               margin-bottom: 10px;
+                width: 124px;
+                height: 124px;
+                border: 5px solid #2b3553;
+                border-bottom-color: transparent;
+                background-color: transparent;
+                position: relative;                
            }
 
            .text-muted
@@ -117,59 +70,30 @@
                color: #919aa3 !important;
            }
 
-           .f-w-600
-           {
-                font-weight: 600;
-           }
-
-           .m-b-20
-           {
-               margin-bottom: 20px;
-           }
-
-           .m-t-40
-           {
-               margin-top: 20px;
-           }
-
-           .p-b-5
-           {
-                padding-bottom: 5px !important;
-           }
-
-           .m-b-10
-           {
-               margin-bottom: 10px;
-           }
-
-           .m-t-40
-           {
-                margin-top: 20px;
-           }
-
-           .user-card-full .social-link li
-           {
-                display: inline-block;
-           }
-
-           .user-card-full .social-link li a 
-           {
-                font-size: 20px;
-                margin: 0 10px 0 0;
-                -webkit-transition: all 0.3s ease-in-out;
-                transition: all 0.3s ease-in-out;
-           }
-
            .text-black
            {
                color: black;
            }
 
-           
+           .card label
+           {
+                color: rgba(255, 255, 255, 0.6);
+           }
+
+           .card-user 
+           {
+               overflow: hidden;
+           }
+
+
+
         </style>  
       <div class="nav-scroller py-1 mb-2">
         <nav class="nav d-flex">
           <a class="p-2 text-muted" style="margin-left: 20px;" href="/news">News</a>
+          <div class="text-left" style="margin-left: 82%; margin-top: 9px;">
+              <a class="p-2 text-muted" href="/logout">Logout</a>
+          </div>
           <!--a class="p-2 text-muted" href="#">World</a>
           <a class="p-2 text-muted" href="#">U.S.</a>
           <a class="p-2 text-muted" href="#">Technology</a>
@@ -185,8 +109,65 @@
         </nav>
       </div>
 </head>
-<body>
-    <div class="page-content page-container" id="page-content">
+<body style="background-color: black;">
+    <div class="wrapper">
+         <div class="main-panel ps">
+             <nav class="navbar-expand-lg navbar-absolute navbar-transparent"></nav>
+             <div class="content">
+                 <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="card" style="background: #27293d; margin-top: 20px; padding-left: 20px; margin-left: 20px; border-radius: 10px;" >
+                                <div class="card-header">
+                                    <h5 class="title">{{ $user['name'] }} Profile</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="col-sm-12">
+                                        <label for=""><strong class="">Name: </strong></label>
+                                        <span class=""  style="color: #c4c4c2;">{{ $user['name'] }}</span>
+                                    </div>
+
+                                    <div class="col-sm-12">
+                                            <label for=""><strong>Email: </strong></label>
+                                            <span class="" style="color: #c4c4c2;">{{ $user['email'] }}</span>     
+                                    </div>
+
+                                    <div class="col-sm-12">
+                                            <label for=""><strong>Age: </strong></label>
+                                            <span style="color: #c4c4c2;">{{ $user['age'] }}</span>  
+                                    </div>                                      
+                                </div>
+                                <div class="card-footer">
+                                    <strong style="color: rgba(255, 255, 255, 0.6);">Created on: </strong>
+                                    <span style="color: #c4c4c2;">{{ $user['created_at'] }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4" style="margin-top: 20px;">
+                            <div class="card card-user">
+                                <div class="card-body">
+                                    <p class="card-text"></p>
+                                    <div class="author">
+                                         <a href="">
+                                            <img class="avatar" src="https://black-dashboard-laravel.creative-tim.com/black/img/emilyz.jpg"> 
+                                            <h5 class="title">{{ $user['name'] }}</h5>
+                                         </a>
+                                         <p class="description" style="color: #c4c4c2;">{{ $user['type'] == 1 ? 'Admin' : ''}}</p>
+                                    </div>
+                                    <div class="card-description" style="color: #c4c4c2;">
+                                        Lorem Ipsum
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </div>
+         </div>
+    </div>
+
+
+    {{-- <div class="page-content page-container" id="page-content">
         <div class="padding">
             <div class="row container d-flex justify-content-center">
                 <div class="col-xl-6 col-md-12">
@@ -204,12 +185,16 @@
                                     <h6 class="m-b-20 p-b-5 b-b-default f-w-600 text-black">Information</h6>
                                     <div class="row">
                                         <div class="col-sm-12">
+                                            <p class="m-b-10 f-w-600">Name</p>
+                                            <h6 class="text-black f-w-400">{{ $user['name'] }}</h6>
+                                        </div>
+                                        <div class="col-sm-12">
                                             <p class="m-b-10 f-w-600">Email</p>
-                                            <h6 class="text-muted f-w-400">{{ $user['email'] }}</h6>
+                                            <h6 class="text-black f-w-400">{{ $user['email'] }}</h6>
                                         </div>
                                         <div class="col-sm-12">
                                             <p class="m-b-10 f-w-600">Age</p>
-                                            <h6 class="text-muted f-w-400">{{ $user['age'] }}</h6>
+                                            <h6 class="text-black f-w-400">{{ $user['age'] }}</h6>
                                         </div>
                                     </div>
                                 </div>
@@ -217,14 +202,16 @@
                         </div>
                         <div class="card" style="margin-top: 20px; margin-left: -20px;">
                             <div class="card-body">
-                                <a href="/logout" class="btn btn-sm btn-default" style="border: 2px solid white;">Logout</a>
+                                <a href="/logout" class="btn btn-sm btn-default text-black">Logout</a>
                             </div>
                         </div>                         
                     </div>
                 </div>
             </div>
         </div>
-    </div>       
+    </div>   --}}
+    
+    
     {{-- <div class="page-content page-container" id="page-content">
          <div class="padding">
              <div class="row container d-flex justify-content-center">

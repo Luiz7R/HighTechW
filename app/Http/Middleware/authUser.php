@@ -16,13 +16,15 @@ class authUser
      */
     public function handle($request, Closure $next)
     {   
-        $user = Auth::user();
-
-        if ( $user->type == 0 )
+        if ( Auth::check() )
         {
-            abort(404); //return redirect('/news');
-        }
+            $user = Auth::user();
 
+            if ( $user->type == 0 )
+            {
+                abort(404); //return redirect('/news');
+            }
+        }    
         return $next($request);
     }
 }
