@@ -38,4 +38,36 @@ class LoginTest extends TestCase
 
         $response->assertRedirect('/news');
     }
+
+    public function test_user_can_not_access_createPostPage()
+    {
+        $user = User::factory()->create();
+        
+        $response = $this->post('/auth', [
+            'email' => $user->email,
+            'password' => 'password'
+        ]);
+
+        $this->get('/admin/posts');
+
+        $response->assertRedirect('/news');
+    } 
+    
+    public function test_user_can_access_createPostPage()
+    {
+        $user = User::factory()->create();
+        
+        $user->update(['type' => "1"]);
+
+        $this->post('/auth', [
+            'email' => $user->email,
+            'password' => 'password'
+        ]);
+
+        $response = $this->get('/admin/posts');
+        $response->assertStatus(200);
+
+        //$response->assertSeeText('Posts');
+    } 
+
 }
