@@ -22,7 +22,7 @@ class authUser
 
             if ( $user->type == 0 || $user->type == 2 )
             {
-                abort(404); //return redirect('/news');
+                abort(404);
             }
         }    
         return $next($request);

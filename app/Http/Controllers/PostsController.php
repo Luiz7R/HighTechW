@@ -36,7 +36,7 @@ class PostsController extends Controller
     {
         $data = Post::find($id);
         $data->delete();
-        return true; //return redirect('/posts');
+        return true;
     }
 
     function editPost($id)

@@ -55,8 +55,7 @@ $(document).on('click', '.delPst', function() {
             success: function()
             {
                     $('#delPost').modal('hide');
-                    window.reload();
-                    //window.location = "/admin/posts";                   
+                    window.reload();                 
             },
             error: function()
             {   
