@@ -35,6 +35,6 @@ class RegisterUserController extends Controller
 
               Auth::login($user);
 
-              return redirect()->route('admprf');
+              return redirect()->route('newsPage');
        }
 }

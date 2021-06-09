@@ -24,7 +24,7 @@ class PostsController extends Controller
         
         Post::create($data);
 
-        return redirect('/posts');
+        return redirect( )->route('new-post');
     }
 
     public function getPost(Post $post)
@@ -48,7 +48,6 @@ class PostsController extends Controller
 
     function update(Request $request)
     {
-        //return $request->input(); // Retornar valores enviados
         $postData = Post::find($request->_idpost);
         
         $postData->title = $request->title;

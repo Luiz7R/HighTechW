@@ -31,7 +31,7 @@ $(document).on('click', '.edtPst', function() {
             type: 'ajax',
             method: 'get',
             async: false,
-            url: 'http://localhost:8000/posts/edit/'+idP,
+            url: 'http://localhost:8000/admin/posts/edit/'+idP,
             dataType: 'json',
             success: function(data)
             {
@@ -50,12 +50,13 @@ $(document).on('click', '.delPst', function() {
             type: 'ajax',
             method: 'get',
             async: false,
-            url: 'http://localhost:8000/posts/delete/'+idP,
+            url: 'http://localhost:8000/admin/posts/delete/'+idP,
             dataType: 'json',
             success: function()
             {
                     $('#delPost').modal('hide');
-                    window.location = "/posts";                   
+                    window.reload();
+                    //window.location = "/admin/posts";                   
             },
             error: function()
             {   

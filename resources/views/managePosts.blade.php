@@ -23,7 +23,7 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form action="http://localhost:8000/posts/update" method="POST" id="postEdit">
+                    <form action="{{route('update-post')}}" method="POST" id="postEdit">
                         @csrf
                         @method('POST')  
                         <input type="hidden" name="_idpost" value=""> 

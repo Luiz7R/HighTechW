@@ -37,22 +37,21 @@ Route::get('/', [LandingController::class, 'getLandingPage']);
 Route::get('/news', [PageController::class, 'getNewsPage'])->name('newsPage');
 Route::get('/about', [LandingController::class, 'getAboutPage']);
 
-Route::get('/admin/posts', [PostsController::class, 'getPosts'])->middleware('user.auth');
-Route::post('/admin/posts', [PostsController::class, 'postBlogPost'])->middleware('user.auth')->name('new-post');
-Route::get('/admin/posts/{post}', [PostsController::class, 'getPost'])->middleware('user.auth');
-
-Route::get('/posts/delete/{id}', [PostsController::class, 'deletePost'])->middleware('user.auth');
-Route::get('/posts/edit/{id}', [PostsController::class, 'editPost'])->middleware('user.auth');
-Route::post('/posts/update', [PostsController::class, 'update'])->middleware('user.auth');
-
-Route::get('/admin/register', [RegisterUserController::class, 'createPage'])->name('register');
-Route::post('/admin/reg', [RegisterUserController::class, 'createAccount'])->name('registerAcc');
-Route::get('/admin/profile', [UserAuth::class, 'adminProfile'] )->middleware('user.auth')->name('admprf');
+Route::prefix('admin')->group(function() {
+    Route::get('/posts', [PostsController::class, 'getPosts'])->middleware('user.auth');
+    Route::get('/posts/{post}', [PostsController::class, 'getPost'])->middleware('user.auth');
+    Route::post('/posts', [PostsController::class, 'postBlogPost'])->middleware('user.auth')->name('new-post');
+    Route::get('/profile', [UserAuth::class, 'adminProfile'])->middleware('user.auth')->name('admprf');
+    
+    Route::get('/posts/delete/{id}', [PostsController::class, 'deletePost'])->middleware('user.auth');
+    Route::get('posts/edit/{id}', [PostsController::class, 'editPost'])->middleware('user.auth');
+    Route::post('/posts/update', [PostsController::class, 'update'])->middleware('user.auth')->name('update-post');
+});
 
 Route::get('/login', [UsersController::class, 'login'])->name('login.page');
+Route::get('/logout', [UsersController::class, 'logout'])->name('logout.user');
 Route::get('/profile', [UserAuth::class, 'userProfile'] )->name('userprf');
 
-Route::get('/logout', [UsersController::class, 'logout'])->name('logout.user');
 Route::post('/auth', [UsersController::class, 'auth'])->name('auth.user');
 Route::view('/register', 'admin.register');
 Route::post('/registerUser', [RegisterUserController::class, 'createAccount'])->name('register.user');

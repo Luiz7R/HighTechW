@@ -20,7 +20,7 @@ class authUser
         {
             $user = Auth::user();
 
-            if ( $user->type == 0 )
+            if ( $user->type == 0 || $user->type == 2 )
             {
                 abort(404); //return redirect('/news');
             }
