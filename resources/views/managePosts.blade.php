@@ -9,8 +9,34 @@
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
     @include('templates.navbar')
+    <style>
+        .b-bgc
+        {
+            background-color: #2e3233;
+        }
+
+        .cd-bg-c2
+        {
+             background-color: #222;
+        }
+
+        .cd-bg-c1
+        {
+            background-color: #343a40;
+        }
+        
+        .text-ic-color
+        {
+            color: #e8e8e4;
+        }
+
+        .text-dk-color
+        {
+            color: #03071e;
+        }
+    </style>
 </head>
-<body>
+<body class="b-bgc">
     <div class="container" style="padding-top: 20px;">
      <div class="col-8">
         <!-- Modal -->
@@ -34,7 +60,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="context-texto" class="col-form-label">Content:</label>
-                                <textarea class="form-control" name="content" id="content-text"></textarea>
+                                <textarea class="form-control text-dark" name="content" id="content-text"></textarea>
                             </div>           
                         </div>
                         <div class="modal-footer">
@@ -67,9 +93,11 @@
         </div> 
 
         <div class="card" id="PostsHW">
-             <div class="card-header text-center">Posts</div>
-             <div class="card-body">
-                 <table class="table table-striped">
+             <div class="card-header cd-bg-c2 text-center text-white">
+                 Posts
+             </div>
+             <div class="card-body cd-bg-c1">
+                <table class="table table-dark table-striped">
                      <thead>
                          <tr>
                              <td>#</td>
@@ -93,7 +121,9 @@
                          </tr>
                          @endforeach
                      </tbody>
-                 </table>
+                </table>
+             </div>
+             <div class="card-footer cd-bg-c2">
                  {{ $posts->links() }}
              </div>
         </div>
@@ -104,33 +134,33 @@
 <hr>
 <div class="container">
     <div class="col-8">
-        <div class="card" id="mPostHW">
-            <div class="card-header text-center">New Posts</div>
-            <div class="card-body">
+        <div class="card" id="mPostHW" style="margin-bottom: 30px;">
+            <div class="card-header cd-bg-c2 text-center text-white">New Posts</div>
+            <div class="card-body cd-bg-c1">
                 <form method="POST" action="{{route('new-post')}}">
                     @csrf
                     @method('POST')
                     <fieldset>
                         <div class="form-group">
-                            <label for="author" class="col-sm-2 col-form-label">Author</label>
+                            <label for="author" class="col-sm-2 col-form-label text-ic-color">Author</label>
                             <div class="col-sm-10">
-                                <select name="user_id" id="author" class="form-control">
+                                <select name="user_id" id="author" class="form-control text-dk-color">
                                     @foreach($users as $user)
                                         <option value="{{$user->id}}"> {{$user->name}} </option>
                                     @endforeach
                                 </select>
                             </div>
-                            <label for="titlePost" class="col-sm-2 col-form-label">Title</label>
+                            <label for="titlePost" class="col-sm-2 col-form-label text-ic-color">Title</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" name="title" id="titlePost">
                             </div>
-                            <label for="contentPost" class="col-sm-2 col-form-label">Content</label>
+                            <label for="contentPost" class="col-sm-2 col-form-label text-ic-color">Content</label>
                             <div class="col-sm-10">
                                 <textarea name="content" id="contentPost" class="form-control" cols="3" rows="3"></textarea>
                             </div>   
-                            <label for="publishedP" class="col-sm-2 col-form-label">Published</label>
+                            <label for="publishedP" class="col-sm-2 col-form-label text-ic-color">Published</label>
                             <div class="col-sm-10">
-                                <select name="published" id="publishedP" class="form-control">
+                                <select name="published" id="publishedP" class="form-control text-dk-color">
                                         <option value="1">Yes</option>
                                         <option value="0">No</option>
                                 </select>

@@ -30,16 +30,15 @@
   ![userProfile](https://user-images.githubusercontent.com/54550561/120909857-f16b7700-c64f-11eb-8cb8-7abbd966fc01.png)
   
   ## Admin Pages
-    
-  ### Admin Profile
-  ![adminProfile](https://user-images.githubusercontent.com/54550561/121048342-174a6600-c78d-11eb-8c20-ed4063770aaf.png)
 
   ## Create and Edit PostPage
-  
+
   ### List Posts 
-  ![postList](https://user-images.githubusercontent.com/54550561/121048727-6e503b00-c78d-11eb-90eb-2c6a9c398d77.png)
+  ![postsList](https://user-images.githubusercontent.com/54550561/121576063-69de8900-c9fe-11eb-8993-4301440597c6.png)    
+
   ### Create Post
-  ![createPost](https://user-images.githubusercontent.com/54550561/121049571-31d10f00-c78e-11eb-99ca-f3a5bac5732f.png)
+
+  ![createPost1](https://user-images.githubusercontent.com/54550561/121576554-deb1c300-c9fe-11eb-9aa6-cf986181ea11.png)
  
   
 
