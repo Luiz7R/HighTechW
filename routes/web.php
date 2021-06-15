@@ -38,7 +38,7 @@ Route::get('/news', [PageController::class, 'getNewsPage'])->name('newsPage');
 Route::get('/about', [LandingController::class, 'getAboutPage']);
 
 Route::prefix('admin')->group(function() {
-    Route::get('/posts', [PostsController::class, 'getPosts'])->middleware('user.auth');
+    Route::get('/posts', [PostsController::class, 'getPosts'])->middleware('user.auth')->name('posts.page');
     Route::get('/posts/{post}', [PostsController::class, 'getPost'])->middleware('user.auth');
     Route::post('/posts', [PostsController::class, 'postBlogPost'])->middleware('user.auth')->name('new-post');
     Route::get('/profile', [UserAuth::class, 'adminProfile'])->middleware('user.auth')->name('admprf');
@@ -53,5 +53,5 @@ Route::get('/logout', [UsersController::class, 'logout'])->name('logout.user');
 Route::get('/profile', [UserAuth::class, 'userProfile'] )->name('userprf');
 
 Route::post('/auth', [UsersController::class, 'auth'])->name('auth.user');
-Route::view('/register', 'admin.register');
+Route::get('/register', [RegisterUserController::class, 'register'])->name('register.page');
 Route::post('/registerUser', [RegisterUserController::class, 'createAccount'])->name('register.user');

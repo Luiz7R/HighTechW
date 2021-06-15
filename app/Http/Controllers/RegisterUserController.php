@@ -12,10 +12,13 @@ use Carbon\Carbon;
 
 class RegisterUserController extends Controller
 {
-
-       public function createPage()
+       public function register()
        {
-              return view('admin.register');
+           if ( Auth::check() )
+           {
+               return redirect()->route('newsPage');
+           }
+           return view('register');
        }
 
        public function createAccount (Request $request)

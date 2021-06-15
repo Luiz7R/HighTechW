@@ -31,7 +31,7 @@
   
   ## Admin Pages
 
-  ## Create and Edit PostPage
+  ### Create and Edit PostPage
 
   ### List Posts 
   ![postsList](https://user-images.githubusercontent.com/54550561/121576063-69de8900-c9fe-11eb-8993-4301440597c6.png)    
