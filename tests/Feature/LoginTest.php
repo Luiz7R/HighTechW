@@ -49,6 +49,31 @@ class LoginTest extends TestCase
         $response->assertRedirect(route('newsPage'));
     }
 
+    public function test_user_can_not_login_using_the_login_form()
+    {
+        $user = User::factory()->create();
+        
+        $credentials = [
+            'email' => $user->email,
+            'password' => 'wrong'
+        ];
+
+        $response = $this->post(route('auth.user'), $credentials);
+
+        $response->assertStatus(302);
+    }
+
+
+    public function test_user_can_logout()
+    {
+        $user = User::factory()->create();
+        $this->actingAs($user);
+
+        $response = $this->get(route('logout.user'));
+
+        $response->assertRedirect(route('newsPage'));
+    }
+
     public function test_user_can_not_access_createPostPage()
     {
         $user = User::factory()->create();        

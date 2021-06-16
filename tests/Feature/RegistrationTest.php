@@ -18,7 +18,7 @@ class RegistrationTest extends TestCase
         $response->assertStatus(200);
     }
 
-    public function test_new_users_can_register()
+    public function test_client_can_register()
     {
         $credentials = [
             'name' => 'Test User',
@@ -28,8 +28,27 @@ class RegistrationTest extends TestCase
 
         $response = $this->post(route('register.user'), $credentials);
 
+        $this->assertDatabaseHas('users', [
+            'email' => $credentials["email"]
+        ]);
+
         $this->assertAuthenticated();
 
         $response->assertRedirect(route('newsPage'));
     }
+
+    public function test_client_can_not_register()
+    {   
+        $user = User::factory()->create();
+
+        $credentials = [
+            'name' => 'Test User',
+            'email' => $user->email,
+            'password' => 'password'
+        ];
+
+        $response = $this->post(route('register.user'), $credentials);
+
+        $response->assertStatus(302);
+    }    
 }
