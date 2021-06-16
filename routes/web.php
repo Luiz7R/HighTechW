@@ -35,6 +35,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [LandingController::class, 'getLandingPage']);
 Route::get('/news', [PageController::class, 'getNewsPage'])->name('newsPage');
+Route::get('/news/{newsId}', [PageController::class, 'getNews'])->name('news');
 Route::get('/about', [LandingController::class, 'getAboutPage']);
 
 Route::prefix('admin')->group(function() {

@@ -22,9 +22,18 @@ class PageController extends Controller
         return view('Page', compact(['news']) );
     }
 
-    public function getLoginPage()
+    public function getNews($newsId)
     {
-        return view('Login');
+        $news = Post::findOrfail($newsId);
+
+        if ( Auth::check() )
+        {
+             $user = Auth::user();
+
+             return view('Page', compact(['news', 'user']) );
+        }
+
+        return view('News', compact(['news']) );
     }
 
 }

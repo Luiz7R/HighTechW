@@ -120,10 +120,11 @@
                 @foreach ( $news as $post )
                     <div class="card text-center" style="margin-top: 20px;">
                         <div class="card-header">
-                            {{ $post->title }}
+                          <a href="{{ route('news', ['newsId' => $post->id]) }}" style="color: black;">
+                              <h5 class="card-title">{{ $post->title }}</h5>
+                          </a>
                         </div>
-                        <div class="card-body">
-                            <h5 class="card-title">{{ $post->title }}</h5>
+                        <div class="card-body">                            
                             <p class="card-text">{{ $post->content }}</p>
                             <p class="card-text text-muted">By: {{ $post->user['name'] }}</p>
                         </div>
@@ -135,9 +136,6 @@
 
             </div><!-- /.blog-main -->
 
-
-
-        
         <aside class="col-md-4 blog-sidebar">
             <div class="p-3 mb-3 bg-light rounded">
                 <h4 class="font-italic">About</h4>
