@@ -44,7 +44,7 @@ Route::prefix('admin')->group(function() {
     Route::post('/posts', [PostsController::class, 'postBlogPost'])->middleware('user.auth')->name('new-post');
     Route::get('/profile', [UserAuth::class, 'adminProfile'])->middleware('user.auth')->name('admprf');
     
-    Route::get('/posts/delete/{id}', [PostsController::class, 'deletePost'])->middleware('user.auth');
+    Route::get('/posts/delete/{id}', [PostsController::class, 'deletePost'])->middleware('user.auth')->name('del-post');
     Route::get('posts/edit/{id}', [PostsController::class, 'editPost'])->middleware('user.auth');
     Route::post('/posts/update', [PostsController::class, 'update'])->middleware('user.auth')->name('update-post');
 });
